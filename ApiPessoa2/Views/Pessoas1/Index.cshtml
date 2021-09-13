@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ApiPessoa2.Models.Pessoa> 
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Home</h1>
+
+<h2>
+    <a class="btn btn-primary" asp-action="Create">Create</a>
+</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Id)</th>
+            <th>@Html.DisplayNameFor(model => model.Cpf)</th>
+            <th>@Html.DisplayNameFor(model => model.Nome)</th>
+            <th>@Html.DisplayNameFor(model => model.Sobrenome)</th>
+            <th>@Html.DisplayNameFor(model => model.Email)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                <td>@Html.DisplayFor(modelItem => item.Cpf)</td>
+                <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                <td>@Html.DisplayFor(modelItem => item.Sobrenome)</td>
+                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                <td>
+                    <a class="btn btn-primary" asp-action="Update" asp-route-id="@item.Id">Update</a> |
+                    <a class="btn btn-info" asp-action="GetById" asp-route-id="@item.Id">GetById</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
